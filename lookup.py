@@ -26,8 +26,3 @@ def retrieve_quote(from_cur,to_cur):
     time_stamp=convert_time_stamp(data['timestamp'])
     return (time_stamp,data['quotes']['USD'+to_cur]) #default is USD my plan is bad need to change that ASAP
 
-#print(retrieve_quote('XOF','MAD'))
-
-
-
-#print(convert_time_stamp("1284101485"))
