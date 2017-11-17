@@ -2,10 +2,11 @@ import psycopg2
 from lookup import retrieve_cur
 
 class Database:
-    mypath = "dbname='pocketDB' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
+    local_path = "dbname='pocketDB' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
+    heroku_path = "dbname='dc613q3o1fg3gg' user='qcwkaczdqghgzq' password='2395a876733ec5a349d54220f049006094166cadf5ee3ae2698da24d9778284b' host='ec2-54-221-225-114.compute-1.amazonaws.com' port='5432'"
     def __init__(self):
         print("Trying connection to database...")
-        self.conn=psycopg2.connect(self.mypath)
+        self.conn=psycopg2.connect(self.heroku_path)
         print("Connected successfully to database!")
         self.cur=self.conn.cursor()
         self.cur.execute("CREATE TABLE IF NOT EXISTS currency (cur_id SERIAL NOT NULL ,cur_label TEXT,cur_name TEXT)")
