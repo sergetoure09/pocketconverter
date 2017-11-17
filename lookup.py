@@ -13,8 +13,8 @@ def retrieve_cur():
     #print(API_request+API_key)
     data=data.content
     data=json.loads(data)
-    for k,v in data["currencies"].items():
-        print(k,v)
+    return data
+        
 def convert_time_stamp(time_stamp):
     timy=datetime.datetime.fromtimestamp(int(time_stamp)).strftime('%Y-%m-%d %H:%M:%S')
     return timy
@@ -26,7 +26,7 @@ def retrieve_quote(from_cur,to_cur):
     time_stamp=convert_time_stamp(data['timestamp'])
     return (time_stamp,data['quotes']['USD'+to_cur]) #default is USD my plan is bad need to change that ASAP
 
-print(retrieve_quote('XOF','MAD'))
+#print(retrieve_quote('XOF','MAD'))
 
 
 

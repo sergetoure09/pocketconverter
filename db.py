@@ -8,10 +8,12 @@ class Database:
         self.conn=psycopg2.connect(self.mypath)
         print("Connected successfully to database!")
         self.cur=self.conn.cursor()
-        self.cur.execute("CREATE TABLE currency IF NOT EXISTS (cur_id SERIAL NOT NULL ,cur_label VARCHAR(10),cur_name VARCHAR(255)")
-        self.cur.execute("CREATE TABLE convert IF NOT EXISTS (convert_id SERIAL NOT NULL ,time_stamp VARCHAR(255), from_cur_id INTEGER NOT NULL,to_cur_id INTEGER NOT NULL,convert_rate DECIMAL,from_amount DECIMAL,to_amount DECIMAL")
-        print("Tables created or already existing in database")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS currency (cur_id SERIAL NOT NULL ,cur_label TEXT,cur_name TEXT)")
         self.conn.commit()
+        self.cur.execute("CREATE TABLE IF NOT EXISTS  convert (convert_id SERIAL NOT NULL ,time_stamp TEXT, from_cur_id INTEGER NOT NULL,to_cur_id INTEGER NOT NULL,convert_rate DECIMAL,from_amount DECIMAL,to_amount DECIMAL)")
+        self.conn.commit()
+        print("Tables created or already existing in database")
+        #self.conn.commit()
 
     def __del__(self):
         self.conn.close()
@@ -28,7 +30,14 @@ class Database:
         self.cur.execute("INSERT INTO convert (time_stamp,from_cur_id,to_cur_id,convert_rate,from_amount,to_amount) VALUES(%s,%s,%s,%s,%s,%s)",(time_stamp,from_cur_id,to_cur_id,convert_rate,from_amount,to_amount))
         self.conn.commit()
 
-    
+    def ask_cur(self):
+        self.cur.execute("SELECT * FROM currency")
+        option_list=self.cur.fetchall()
+        return option_list
+
+#mamassa = Database()
+#mamassa.insert_currencies()
+#print(mamassa.ask_cur())
 
 
 
