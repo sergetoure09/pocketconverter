@@ -10,6 +10,7 @@ class controllers:
         quote=retrieve_quote(from_cur[1],to_cur[1])# USD default keep in mind
         to_amount=float(quote[1])*float(from_amount)
         self.db_conn.save_convert_request(quote[0],from_cur[0],to_cur[0],quote[1],from_amount,to_amount)
+        return to_amount
 
 
 
