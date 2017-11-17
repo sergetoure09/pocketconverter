@@ -25,6 +25,7 @@ class Database:
         for label,name in currencies.items():
             self.cur.execute('INSERT INTO currency (cur_label,cur_name) VALUES(%s,%s)',(label,name))
             self.conn.commit()
+            self.conn.close()
         
     def save_convert_request(self,time_stamp,from_cur_id,to_cur_id,convert_rate,from_amount,to_amount):
         #self.cur.execute("SELECT cur_id from currency WHERE from_cur=")
