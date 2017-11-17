@@ -37,8 +37,8 @@ class Database:
         option_list=self.cur.fetchall()
         return option_list
 
-#mamassa = Database()
-#mamassa.insert_currencies()
+mamassa = Database()
+mamassa.insert_currencies()
 #print(mamassa.ask_cur())
 
 
