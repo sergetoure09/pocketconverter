@@ -1,0 +1,12 @@
+{% for activity in activities %}  
+    <tr>
+        <th scope="row">{{ activity[0] | safe }}</th>
+        <td>{{ activity[1] | safe }}</td>
+        <td>{{ activity[2] | safe }}</td>
+        <td>{{ activity[3] | safe }}</td>
+        <td>{{ activity[4] | safe }}</td>
+        <td>{{ activity[5] | safe }}</td>
+        <td>{{ activity[6] | safe }}</td>
+      </tr>
+{% endfor %}
+    
