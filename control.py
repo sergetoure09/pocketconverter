@@ -21,6 +21,10 @@ class Controllers:
         option_list=self.db_conn.ask_cur()
         return option_list
 
+    def all_activities_control(self):
+        data=self.db_conn.all_activities()
+        return data
+
 
 
 
