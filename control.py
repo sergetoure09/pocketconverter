@@ -32,7 +32,7 @@ class Controllers:
         y=[5,25,37,17]
         p=figure(plot_width=500, plot_height=400,toolbar_location=None)
         p.hbar(y=x, height=0.5, left=0,
-        right=y, color="navy")
+        right=y, color="#6E8BFC")
         graph = components(p)
         return graph
 
