@@ -18,13 +18,14 @@ class Database:
 
     def __del__(self):
         self.conn.close()
-        print("Connection to database closed !") 
-           
+        print("Connection to database closed !")  
+        
     def insert_currencies(self):
         currencies=retrieve_cur()["currencies"]
         for label,name in currencies.items():
             self.cur.execute('INSERT INTO currency (cur_label,cur_name) VALUES(%s,%s)',(label,name))
             self.conn.commit()
+            self.conn.close()
         
     def save_convert_request(self,time_stamp,from_cur_id,to_cur_id,convert_rate,from_amount,to_amount):
         #self.cur.execute("SELECT cur_id from currency WHERE from_cur=")
