@@ -18,8 +18,8 @@ class Database:
 
     def __del__(self):
         self.conn.close()
-        print("Connection to database closed !") 
-           
+        print("Connection to database closed !")  
+        
     def insert_currencies(self):
         currencies=retrieve_cur()["currencies"]
         for label,name in currencies.items():
