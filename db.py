@@ -40,7 +40,7 @@ class Database:
 #mamassa = Database()
 #mamassa.insert_currencies()
 #print(mamassa.ask_cur())
-
+##
 
 
 
