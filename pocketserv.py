@@ -4,7 +4,7 @@ import ast
 app=Flask(__name__)
 controller= Controllers()
 option_list = controller.option_cur()
-activities=controller.all_activities_control()
+#activities=controller.all_activities_control()
 #option_list=controller.option_cur()
 @app.route('/')
 def home():
@@ -14,6 +14,8 @@ def home():
 def dashboard():  
     activities=controller.all_activities_control() 
     return render_template('dashboard.html',option_list=option_list,activities=activities)
+
+
 
 @app.route('/about/')
 def about():
