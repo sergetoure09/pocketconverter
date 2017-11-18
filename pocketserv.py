@@ -17,7 +17,7 @@ def dashboard():
 def about():
     return render_template('about.html')
 
-@app.route('/convertion', methods=['POST','GET'])
+@app.route('/convertion/', methods=['POST','GET'])
 def convert():
     if request.method == 'POST':
         wsfrom_cur=ast.literal_eval(request.form['from_cur'])
@@ -26,7 +26,7 @@ def convert():
         print(type(wsfrom_amount))
         print(wsfrom_cur,wsto_cur,wsfrom_amount)
         to_amount = controller.convert_control(wsfrom_cur,wsto_cur,wsfrom_amount)
-        return render_template('dashboard.html',to_amount=to_amount,option_list=option_list)
+        return render_template('dashboard.html',to_amount=to_amount,option_list=option_list,wsfrom_cur=wsfrom_cur,wsto_cur=wsto_cur,wsfrom_amount=wsfrom_amount)
 
 @app.route('/contact/')
 def contact():

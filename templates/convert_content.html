@@ -5,7 +5,13 @@
             <div class="row">
               <div class="col-sm">
                   <select name="from_cur" class="custom-select">
-                      <option selected>Open this select menu</option>
+                      {% if wsfrom_cur %}
+                        <option value="{{ wsfrom_cur }}" selected>
+                        {{ wsfrom_cur.2 }} ({{ wsfrom_cur.1 }})
+                      {% else %}
+                        Select currency
+                      {% endif %}
+                       </option>
                       {% for option in option_list %}
                       <option value="{{ option | safe }}">{{ option.2 }} ({{ option.1 }})</option>
                       {% endfor %}
@@ -13,7 +19,13 @@
               </div>
               <div class="col-sm">
                   <select name="to_cur" class="custom-select" >
-                      <option selected>Open this select menu</option>
+                      {% if wsto_cur %}
+                        <option value="{{ wsto_cur }}" selected>
+                        {{ wsto_cur.2 }} ({{ wsto_cur.1 }})
+                      {% else %}
+                        Select currency
+                      {% endif %}
+                       </option>
                       {% for option in option_list %}
                       <option value="{{ option | safe }}">{{ option.2 }} ({{ option.1 }})</option>
                       {% endfor %}
@@ -25,7 +37,7 @@
             </div>
                 <div class="row">
                   <div class="col-sm">
-                    <input name="from_amount" type="text" class="form-control" placeholder="Amount" style="width:367px">
+                    <input name="from_amount" type="text" class="form-control" placeholder="Amount" style="width:367px" value="{{ wsfrom_amount | safe }}" >
                   </div>
                   <div class="col-sm">
                     <input name="to_amount" type="text" class="form-control" placeholder="Result" style="width:367px" value="{{ to_amount | safe }}">
