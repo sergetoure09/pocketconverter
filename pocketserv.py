@@ -13,9 +13,8 @@ def home():
 @app.route('/dashboard/')
 def dashboard():  
     activities=controller.all_activities_control() 
-    return render_template('dashboard.html',option_list=option_list,activities=activities)
-
-
+    graph=controller.graph_control()
+    return render_template('dashboard.html',option_list=option_list,activities=activities,graph=graph)
 
 @app.route('/about/')
 def about():
@@ -32,7 +31,8 @@ def convert():
         #print(wsfrom_cur,wsto_cur,wsfrom_amount)
         to_amount = controller.convert_control(wsfrom_cur,wsto_cur,wsfrom_amount)
         activities=controller.all_activities_control()
-        return render_template('dashboard.html',to_amount=to_amount,option_list=option_list,wsfrom_cur=wsfrom_cur,wsto_cur=wsto_cur,wsfrom_amount=wsfrom_amount,activities=activities)
+        graph=controller.graph_control()
+        return render_template('dashboard.html',to_amount=to_amount,option_list=option_list,wsfrom_cur=wsfrom_cur,wsto_cur=wsto_cur,wsfrom_amount=wsfrom_amount,activities=activities,graph=graph)
 
 @app.route('/contact/')
 def contact():

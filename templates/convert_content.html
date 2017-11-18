@@ -33,13 +33,13 @@
               </div>
             </div>
             <div>
-            <a href="{{url_for('convert')}}"><img src="{{url_for('static',filename='imgs/next-page.svg')}}" style="margin-left: 42%" width="30px" height="30px"></a>
+            <a><img src="{{url_for('static',filename='imgs/next-page.svg')}}" style="margin-left: 42%" width="30px" height="30px"></a>
             </div>
                 <div class="row">
-                  <div class="col-sm">
+                  <div class="col">
                     <input name="from_amount" type="text" class="form-control" placeholder="Amount" style="width:367px" value="{{ wsfrom_amount | safe }}" >
                   </div>
-                  <div class="col-sm">
+                  <div class="col">
                     <input name="to_amount" type="text" class="form-control" placeholder="Result" style="width:367px" value="{{ to_amount | safe }}">
                   </div>
                 </div><br>

@@ -2,7 +2,11 @@
 {% block main_content %}
 {% include 'convert_content.html' %}
 <div class="row">
-    <div class="col-sm"><h3>Graph here</h3></div>
+    <div class="col-sm">
+        <h3>Search trend</h3>
+        {{ graph[0] | safe }}
+        {{ graph[1] | safe }}
+    </div>
     <div class="col-sm"><h3>Last 5 convertions</h3>
             <table class="table table-striped" style="font-size:10px">
                     <thead>
